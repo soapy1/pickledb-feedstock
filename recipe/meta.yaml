@@ -1,16 +1,16 @@
 {% set name = "pickleDB" %}
-{% set version = "0.9.2" %}
+{% set version = "1.6" %}
 
 package:
   name: "{{ name|lower }}"
   version: "{{ version }}"
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: ec6973e65d7d112849e78ce522840aa908efb2523470bb8ce5c7942310192240
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name | lower }}/{{ name | lower }}-{{ version }}.tar.gz
+  sha256: 0a1311e932d92fb66ce6eeb7f6a9af56852dffa2054b6021ba3563402d5219e2
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
 
@@ -18,8 +18,11 @@ requirements:
   host:
     - pip
     - python {{ python_min }}
+    - flit-core >=3.9,<4
   run:
     - python >={{ python_min }}
+    - orjson
+    - aiofiles
 
 test:
   requires:
@@ -29,9 +32,8 @@ test:
 
 about:
   home: http://github.com/patx/pickledb
-  license: BSD 3-clause
+  license: BSD-3-Clause
   license_family: BSD
-  # See https://github.com/patx/pickledb/issues/52
   license_file: LICENSE
   summary: A lightweight and simple database using json.
 
