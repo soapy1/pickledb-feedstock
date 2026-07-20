@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pickledb-feedst
 
 Home: http://github.com/patx/pickledb
 
-Package license: BSD 3-clause
+Package license: BSD-3-Clause
 
 Summary: A lightweight and simple database using json.
 
